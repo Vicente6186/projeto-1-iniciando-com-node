@@ -26,6 +26,12 @@
         return result
     }
 
+    update(tableName: string, id: string, item: any) {
+        const table = this.database[tableName]
+        const index = table.findIndex((item) => item.id === id)
+        table[index] = item
+    }
+
     destroy(tableName: string, id: string) {
         const table = this.database[tableName]
         table.findIndex((item) => item.id === id)
